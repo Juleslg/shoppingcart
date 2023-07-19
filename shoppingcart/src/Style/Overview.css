@@ -1,0 +1,22 @@
+.image {
+  width: 300px;
+  filter: grayscale(80%);
+  transition: all 0.5s;
+}
+
+.image:hover {
+  filter: grayscale(0);
+  transform: rotate(-2deg) scale(1);
+  cursor: pointer;
+}
+
+.content {
+  padding: 20px;
+
+  display: flex;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: aliceblue;
+}

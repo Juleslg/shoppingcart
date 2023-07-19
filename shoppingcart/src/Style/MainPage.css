@@ -7,7 +7,7 @@ body {
   display: grid;
   height: 100vh;
   width: 100vw;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 4fr;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
     "header header"
@@ -33,19 +33,29 @@ body {
   background-color: #0d7963;
   margin-right: 15px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  padding-top: 30px;
 }
 
 .footer {
   grid-area: footer;
-  margin-top: 15px;
+  margin-top: 30px;
   background-color: #0d7963;
   width: 100%;
+  font-size: 30px;
+  display: flex;
+
+  justify-content: center;
 }
 
 .navbar {
   display: flex;
   gap: 1rem;
   margin-right: 15px;
+  align-self: center;
 }
 
 .title {
@@ -53,4 +63,44 @@ body {
   margin-left: 15px;
   font-size: 40px;
   padding: 5px;
+}
+
+.rightheader {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 50px;
+  gap: 20px;
+}
+
+.shoppingcart {
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  justify-self: center;
+}
+
+.shoppingcart img {
+  width: 30px;
+  height: 45px;
+  /* Additional CSS properties for the image */
+}
+
+.shoppingcart .itemcount {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: rgb(12, 25, 123);
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 12px;
+  line-height: 20px;
+  z-index: 2;
+}
+
+.shoppingcart {
+  position: relative;
 }

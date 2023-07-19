@@ -1,0 +1,20 @@
+.imageproduct {
+  width: 400px;
+}
+
+.productcard {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.productpage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 30px;
+}
+
+.options {
+  padding: 50 px;
+}
