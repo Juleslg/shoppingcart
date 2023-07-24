@@ -14,7 +14,8 @@ const products = [
   {
     id: 1,
     name: "Longboard Red",
-    category: "surfboard",
+    slug: "longboard-red",
+    category: ["surfboard", "all"],
     price: 100,
     image: longboard,
     description:
@@ -24,6 +25,7 @@ const products = [
   {
     id: 2,
     name: "Fun Board",
+    slug: "fun-board",
     category: "surfboard",
     price: 100,
     image: minimal1,
@@ -34,6 +36,7 @@ const products = [
     id: 3,
     name: "Mini Malibu",
     category: "surfboard",
+    slug: "mini-malibu",
     price: 100,
     image: minimal2,
     description:
@@ -44,6 +47,7 @@ const products = [
     id: 4,
     name: "Tornado V6",
     category: "surfboard",
+    slug: "tornado-v6",
     price: 100,
     image: minimal3,
     description:
@@ -54,6 +58,7 @@ const products = [
     id: 5,
     name: "Wax Fun",
     category: "wax",
+    slug: "wax-fun",
     price: 5,
     image: wax1,
     description:
@@ -63,6 +68,7 @@ const products = [
     id: 6,
     name: "Wax Soft",
     category: "wax",
+    slug: "wax-fun",
     price: 5,
     image: wax2,
     description:
@@ -72,6 +78,7 @@ const products = [
     id: 7,
     name: "Wetsuit Cool",
     category: "wetsuits",
+    slug: "wetsuit-cool",
     price: 50,
     image: wetsuit1,
     description:
@@ -82,6 +89,7 @@ const products = [
     id: 8,
     name: "Wetsuit Tight",
     category: "wetsuits",
+    slug: "wetsuit-tight",
     price: 50,
     image: wetsuit2,
     description:
@@ -91,6 +99,7 @@ const products = [
     id: 9,
     name: "Wetsuit Cooler",
     category: "wetsuits",
+    slug: "wetsuit-cooler",
     price: 50,
     image: wetsuit3,
     description:
@@ -101,6 +110,7 @@ const products = [
     id: 10,
     name: "Wax Great",
     category: "wax",
+    slug: "wax-great",
     price: 5,
     image: wax3,
     description:

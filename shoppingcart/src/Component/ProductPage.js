@@ -2,14 +2,21 @@ import React, { useState } from "react";
 import products from "./ProductsData";
 import "../Style/ProductPage.css";
 import AddToCart from "./Addtocart";
+import { useParams } from "react-router-dom";
 
-const ProductPage = ({ selectedProductId }) => {
-  const product = products.find((product) => product.id === selectedProductId);
+const ProductPage = ({
+  selectedProductId,
+  setCountCart,
+  cart,
+  setCart,
+  setLastClicked,
+}) => {
+  const { productSlug } = useParams();
+  const product = products.find((product) => product.slug === productSlug);
 
   if (!product) {
     return <p>Product not found</p>;
   }
-
   return (
     <>
       <div className="productpage">
@@ -25,7 +32,14 @@ const ProductPage = ({ selectedProductId }) => {
           <h1>{product.name}</h1>
           <p> {product.price}</p>
           <p>{product.description}</p>
-          <AddToCart category={product.category} />
+          <AddToCart
+            category={product.category}
+            selectedProductId={selectedProductId}
+            setCountCart={setCountCart}
+            setCart={setCart}
+            cart={cart}
+            setLastClicked={setLastClicked}
+          />
         </div>
       </div>
     </>

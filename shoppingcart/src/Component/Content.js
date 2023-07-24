@@ -1,32 +1,40 @@
-import React, { useState, useEffect } from "react";
-import Overview from "./Overview";
-import ProductPage from "./ProductPage";
+import React from "react";
+import { Outlet } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-function Content({ category, lastClicked }) {
-  const [Page, setPage] = useState("overview");
-  const [selectedProductId, setSelectedProductId] = useState(null);
+function Content({
+  category,
+  selectedProductId,
+  setSelectedProductId,
+  setCountCart,
+  cart,
+  setCart,
+  setLastClicked,
+}) {
+  const navigate = useNavigate();
+  const [showNewArrivals, setShowNewArrivals] = useState(true);
+  const HandleClick = () => {
+    // Instead of setting Page prop, navigate directly
+    navigate("/MainPage/Overview");
+    setShowNewArrivals(false);
+  };
 
-  useEffect(() => {
-    setPage("overview");
-  }, [category, lastClicked]);
-
-  if (Page === "overview") {
-    return (
-      <Overview
-        category={category}
-        setPage={setPage}
-        setSelectedProductId={setSelectedProductId}
-      />
-    );
-  } else {
-    return (
-      <ProductPage
+  return (
+    <>
+      {showNewArrivals && <div onClick={HandleClick}>New Surfboard!</div>}
+      {/* Props you want to pass to child components rendered by Outlet */}
+      <Outlet
         category={category}
         selectedProductId={selectedProductId}
-        setPage={setPage}
+        setSelectedProductId={setSelectedProductId}
+        setCountCart={setCountCart}
+        setCart={setCart}
+        cart={cart}
+        setLastClicked={setLastClicked}
       />
-    );
-  }
+    </>
+  );
 }
 
 export default Content;

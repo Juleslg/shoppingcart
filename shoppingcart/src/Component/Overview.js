@@ -1,20 +1,23 @@
 import products from "./ProductsData";
 import "../Style/Overview.css";
+import { useNavigate } from "react-router-dom";
 
-const Overview = ({ category, setPage, setSelectedProductId }) => {
+const Overview = ({ setSelectedProductId }) => {
   const productsToDisplay = products.filter(
-    (product) => product.category === category
+    (product) => product.category === "surfboard"
   );
+  const navigate = useNavigate();
+
+  const handleProductClick = (slug) => {
+    navigate(`/MainPage/ProductPage/${slug}`);
+  };
 
   return (
     <div className="content">
       {productsToDisplay.map((product) => (
         <div className="cards" key={product.id}>
           <img
-            onClick={() => {
-              setPage("product");
-              setSelectedProductId(product.id);
-            }}
+            onClick={() => handleProductClick(product.slug)}
             src={product.image}
             alt="products"
             className="image"
