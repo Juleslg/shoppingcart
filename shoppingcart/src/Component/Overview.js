@@ -1,10 +1,13 @@
 import products from "./ProductsData";
 import "../Style/Overview.css";
 import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
-const Overview = ({ setSelectedProductId }) => {
+const Overview = () => {
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category") || "surfboard"; // Default to 'surfboard' if no category is provided
   const productsToDisplay = products.filter(
-    (product) => product.category === "surfboard"
+    (product) => product.category === category
   );
   const navigate = useNavigate();
 

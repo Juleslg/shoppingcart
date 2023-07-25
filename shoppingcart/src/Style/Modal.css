@@ -2,7 +2,7 @@
   position: fixed;
   right: -100%; /* Off-screen to the left */
   top: 0;
-  width: 500px;
+  width: 600px;
   min-height: 100%; /* Ensures that modal takes at least full viewport height */
   max-height: 100%; /* Ensures that modal doesn't exceed viewport height */
   background-color: white;

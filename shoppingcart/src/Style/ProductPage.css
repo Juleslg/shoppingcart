@@ -1,3 +1,14 @@
+:root {
+  --primary-color: #fffdfd;
+  --secondary-color: #262fd2;
+  --third-color: #d15014;
+  --fourth-color: #001bce;
+  --finalcolour: #fad73d;
+  --fontone: "dosis";
+  --fonttwo: "rammetto one";
+  --fontthree: "imprima";
+}
+
 .imageproduct {
   width: 400px;
 }
@@ -17,4 +28,24 @@
 
 .options {
   padding: 50 px;
+}
+
+.productname {
+  color: var(--secondary-color);
+  font-family: var(--fonttwo);
+  font-weight: 1900;
+  font-size: 50px;
+}
+
+.productprice {
+  color: var(--third-color);
+
+  font-weight: 900;
+  font-size: 55px;
+}
+
+.productdescription {
+  color: var(--fourth-color);
+  font-size: 17px;
+  font-weight: 00;
 }

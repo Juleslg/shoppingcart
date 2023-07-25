@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../Style/Modal.css";
+import CartContext from "./CartContext"; // Make sure the path is correct
 
-const Modal = ({ isOpen, onClose, setCart, cart, setCountCart }) => {
+const Modal = ({ isOpen, onClose }) => {
+  // Using context to get cart state and actions
+  const { cart, setCart, setCountCart } = useContext(CartContext);
+
   const modalClassName = `modal ${isOpen ? "open" : ""}`;
-  console.log(cart);
 
   const resetCart = () => {
     setCart([]);
-    setCountCart(null);
+    setCountCart(0); // Use 0 instead of null for consistency
     onClose();
   };
 
@@ -16,26 +19,25 @@ const Modal = ({ isOpen, onClose, setCart, cart, setCountCart }) => {
 
     const updatedCart = cart.filter((_, index) => index !== indexToDelete);
     setCart(updatedCart);
-
-    if (typeof setCountCart === "number") {
-      setCountCart((prevCount) => prevCount - itemQuantityToDelete);
-    } else {
-      setCountCart(null);
-    }
+    setCountCart((prevCount) => prevCount - itemQuantityToDelete);
   };
 
   const updateQuantity = (indexToUpdate, quantity) => {
     const updatedCart = [...cart];
-    updatedCart[indexToUpdate].quantity = quantity;
+    updatedCart[indexToUpdate].quantity = parseInt(quantity, 10); // Ensure quantity is a number
     setCart(updatedCart);
-    setCountCart(quantity);
+
+    const totalItems = updatedCart.reduce(
+      (acc, item) => acc + item.quantity,
+      0
+    );
+    setCountCart(totalItems); // Update the cart count with the new total
   };
 
   const grandTotal = cart.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
-
   return (
     <>
       <div className={modalClassName}>

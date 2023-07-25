@@ -4,13 +4,7 @@ import "../Style/ProductPage.css";
 import AddToCart from "./Addtocart";
 import { useParams } from "react-router-dom";
 
-const ProductPage = ({
-  selectedProductId,
-  setCountCart,
-  cart,
-  setCart,
-  setLastClicked,
-}) => {
+const ProductPage = () => {
   const { productSlug } = useParams();
   const product = products.find((product) => product.slug === productSlug);
 
@@ -29,17 +23,10 @@ const ProductPage = ({
           />
         </div>
         <div>
-          <h1>{product.name}</h1>
-          <p> {product.price}</p>
-          <p>{product.description}</p>
-          <AddToCart
-            category={product.category}
-            selectedProductId={selectedProductId}
-            setCountCart={setCountCart}
-            setCart={setCart}
-            cart={cart}
-            setLastClicked={setLastClicked}
-          />
+          <h1 className="productname">{product.name}</h1>
+          <p className="productprice">Price : {product.price} $</p>
+          <p className="productdescription">{product.description}</p>
+          <AddToCart product={product} />
         </div>
       </div>
     </>

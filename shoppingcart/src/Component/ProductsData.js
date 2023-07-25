@@ -15,7 +15,7 @@ const products = [
     id: 1,
     name: "Longboard Red",
     slug: "longboard-red",
-    category: ["surfboard", "all"],
+    category: "surfboard",
     price: 100,
     image: longboard,
     description:
@@ -30,7 +30,7 @@ const products = [
     price: 100,
     image: minimal1,
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pharetra venenatis nisi. Donec dui ante, lobortis id metus et, tincidunt cursus arcu. Fusce vulputate dui vitae dui congue tempor. Sed auctor cursus dolor. Fusce luctus magna accumsan quam laoreet tristique. In quis dignissim nisi. Donec at pretium diam. Curabitur eget sapien convallis, ornare urna ut, auctor ante. Vivamus nec mi at lectus euismod rutrum sit amet id elit. Proin quis eros dignissim, ultricies nibh a, condimentum quam.",
+      "A type of surfboard which is roughly in between a shortboard and a mini-mal. A funboard is a little longer than a shortboard and with wider and somewhat rounded nose and tail, making it easier to paddle but still having most of the performance of a shortboard.",
   },
   {
     id: 3,
@@ -78,9 +78,11 @@ const products = [
     id: 7,
     name: "Wetsuit Cool",
     category: "wetsuits",
+    size: null,
     slug: "wetsuit-cool",
     price: 50,
     image: wetsuit1,
+
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pharetra venenatis nisi. Donec dui ante, lobortis id metus et, tincidunt cursus arcu. Fusce vulputate dui vitae dui congue tempor. Sed auctor cursus dolor. Fusce luctus magna accumsan quam laoreet tristique. In quis dignissim nisi. Donec at pretium diam. Curabitur eget sapien convallis, ornare urna ut, auctor ante. Vivamus nec mi at lectus euismod rutrum sit amet id elit. Proin quis eros dignissim, ultricies nibh a, condimentum quam.",
   },
@@ -89,6 +91,7 @@ const products = [
     id: 8,
     name: "Wetsuit Tight",
     category: "wetsuits",
+    size: null,
     slug: "wetsuit-tight",
     price: 50,
     image: wetsuit2,
@@ -100,6 +103,7 @@ const products = [
     name: "Wetsuit Cooler",
     category: "wetsuits",
     slug: "wetsuit-cooler",
+    size: null,
     price: 50,
     image: wetsuit3,
     description:

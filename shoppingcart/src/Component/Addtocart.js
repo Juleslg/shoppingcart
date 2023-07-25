@@ -1,26 +1,14 @@
-import React, { useState } from "react";
-import products from "./ProductsData";
+import React, { useState, useContext } from "react";
+import CartContext from "./CartContext";
 
-function AddToCart({
-  category,
-  selectedProductId,
-  setCountCart,
-  setCart,
-  cart,
-  setLastClicked,
-}) {
-  const [quantity, setQuantity] = useState(0);
-  const [size, setSize] = useState(""); // Added state for the size selection
-  const product = products.find((product) => product.id === selectedProductId);
+function AddToCart({ category, product }) {
+  const [quantity, setQuantity] = useState(1);
+  const [size, setSize] = useState("");
+
+  // Use context to get the methods and data needed from the provider
+  const { setCart, setCountCart } = useContext(CartContext);
 
   const handleAddToCart = () => {
-    setLastClicked(Date.now());
-    // If quantity is zero or negative, return early
-    if (quantity <= 0) {
-      return;
-    }
-
-    // If wetsuits category and size is not selected, return early
     if (category === "wetsuits" && !size) {
       return;
     }
@@ -33,30 +21,15 @@ function AddToCart({
       ...(category === "wetsuits" && { size: size }),
     };
 
-    // Check if product (with the same size if applicable) is already in the cart
-    const existingCartItemIndex = cart.findIndex(
-      (item) => item.id === newCartItem.id && (!size || item.size === size)
-    );
-
-    let updatedCart;
-    if (existingCartItemIndex !== -1) {
-      // Update quantity for existing product
-      updatedCart = [...cart];
-      updatedCart[existingCartItemIndex].quantity += quantity;
-    } else {
-      // Add new product to the cart
-      updatedCart = [...cart, newCartItem];
-    }
-
-    setCart(updatedCart);
+    setCart((prevCart) => [...prevCart, newCartItem]);
     setCountCart((prevCount) => prevCount + quantity);
-    // Optionally reset quantity and size for next addition
-    setQuantity(0);
+
+    setQuantity(1);
     setSize("");
   };
 
   const handleQuantityChange = (event) => {
-    const newQuantity = parseInt(event.target.value);
+    const newQuantity = parseInt(event.target.value, 10);
     setQuantity(newQuantity);
   };
 
@@ -64,8 +37,7 @@ function AddToCart({
     setSize(event.target.value);
   };
 
-  const isAddToCartDisabled =
-    quantity <= 0 || (category === "wetsuits" && !size);
+  const isAddToCartDisabled = category === "wetsuits" && !size;
 
   return (
     <>
@@ -99,22 +71,15 @@ function AddToCart({
               checked={size === "large"}
               onChange={handleSizeChange}
             />
-            {/* Added validation message for size selection */}
-            {category === "wetsuits" && !size && (
-              <p className="validation-message">Please select a size.</p>
-            )}
           </div>
         )}
         <p>Quantity</p>
         <input
           type="number"
-          placeholder={quantity.toString()}
+          value={quantity}
           onChange={handleQuantityChange}
+          min="1" // Setting min value to 1 to avoid negative quantities
         />
-        {/* Added validation message for quantity */}
-        {quantity <= 0 && (
-          <p className="validation-message">Please select a valid quantity.</p>
-        )}
         <p>Add To Cart</p>
         <button onClick={handleAddToCart} disabled={isAddToCartDisabled}>
           +

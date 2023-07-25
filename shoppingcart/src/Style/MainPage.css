@@ -1,9 +1,23 @@
+:root {
+  --primary-color: #fffdfd;
+  --secondary-color: #262fd2;
+  --third-color: #d15014;
+  --fourth-color: #001bce;
+  --finalcolour: #fad73d;
+  --fontone: "dosis";
+  --fonttwo: "rammetto one";
+  --fontthree: "imprima";
+}
+
 body {
   margin: 0;
   padding: 0;
+  font-family: var(--fontthree);
+  color: var(--third-color);
 }
 
 .wrap {
+  background-color: var(--primary-color);
   display: grid;
   height: 100vh;
   width: 100vw;
@@ -17,20 +31,22 @@ body {
 
 .header {
   margin-bottom: 15px;
-  background-color: #0d7963;
+  background-color: var(--finalcolour);
   grid-area: header;
   display: flex;
   justify-content: space-between;
+  font-family: var(--fontone);
+  font-weight: 800;
+  box-shadow: rgba(232, 214, 197, 0.15) 0px 8px 10px 0px;
 }
 
 .content {
   grid-area: maincontent;
-  background-color: #0d7963;
 }
 
 .sidebar {
   grid-area: sidebar;
-  background-color: #0d7963;
+  background-color: var(--primary-color);
   margin-right: 15px;
   height: 100%;
   display: flex;
@@ -38,14 +54,20 @@ body {
   gap: 30px;
 
   padding-top: 30px;
+  margin-left: 25px;
+  font-family: var(--fontthree);
+  color: #001bce;
+  font-size: 30px;
+  font-weight: 500;
 }
 
 .footer {
   grid-area: footer;
   margin-top: 30px;
-  background-color: #0d7963;
+  margin-bottom: 15px;
+  background-color: var(--primary-color);
   width: 100%;
-  font-size: 30px;
+  font-size: 10px;
   display: flex;
 
   justify-content: center;
@@ -61,8 +83,9 @@ body {
 .title {
   display: flex;
   margin-left: 15px;
-  font-size: 40px;
+  font-size: 100px;
   padding: 5px;
+  font-weight: 900;
 }
 
 .rightheader {

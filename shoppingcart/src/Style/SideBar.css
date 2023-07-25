@@ -1,0 +1,13 @@
+.sidebar p {
+  font-family: var(--fontone);
+  font-size: 28px;
+  font-weight: normal;
+  transition: font-size 0.5s, font-weight 0.5s;
+}
+
+.sidebar p:hover {
+  cursor: crosshair;
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--finalcolour);
+}

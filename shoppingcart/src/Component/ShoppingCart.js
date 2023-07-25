@@ -1,7 +1,10 @@
 import React from "react";
 import shoppingcart from "../SVG/shopping-bag-filled-silhouette-svgrepo-com.svg";
+import CartContext from "./CartContext";
+import { useContext } from "react";
 
-const ShoppingCart = ({ openModal, countCart }) => {
+const ShoppingCart = ({ openModal }) => {
+  const { countCart } = useContext(CartContext);
   return (
     <>
       <div className="shoppingcart">
